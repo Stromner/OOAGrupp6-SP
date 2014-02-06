@@ -1,12 +1,13 @@
 /**
- * Write a description of class Workflow here.
+ * Write a description of class ActionHandler here.
  * 
  * @author David Stromner
  * @version 2013-02-06
  */
 
+
 package controller;
 
-public class Workflow {
+public class ActionHandler {
 
 }

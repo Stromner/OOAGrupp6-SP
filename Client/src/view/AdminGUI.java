@@ -7,6 +7,6 @@
 
 package view;
 
-public class AdminGUI extends GUI{
+public class AdminGUI extends UserGUI{
 
 }

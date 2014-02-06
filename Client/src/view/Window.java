@@ -28,7 +28,7 @@ public class Window {
 		interfaceList.put("Employee", new EmployeeGUI());	
 	}
 	
-	public Boolean SetView(String key){
-		return true;
+	public void SetView(String key){
+		frame.add(interfaceList.get(key));
 	}
 }

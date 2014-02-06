@@ -1,8 +1,7 @@
 /**
  * Write a description of class Main here.
  * 
- * @author David Stromner
- * @author	Henrik Johansson
+ * @author David Stromner, Henrik Johansson
  * @version 2013-02-06
  */
 

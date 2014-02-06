@@ -7,8 +7,6 @@
 
 package model;
 
-import model.Day;
-
 public class Schedule {
 
 }
