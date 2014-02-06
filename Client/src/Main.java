@@ -1,9 +1,10 @@
 /**
  * Write a description of class Main here.
  * 
- * @author David Strömner
+ * @author David Stromner
  * @version 2013-02-05
  */
+
 public class Main {
 
 	/**
