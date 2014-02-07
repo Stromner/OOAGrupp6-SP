@@ -8,5 +8,7 @@
 package model;
 
 public class Day {
+	
+	//test
 
 }
