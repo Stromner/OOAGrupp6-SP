@@ -9,4 +9,22 @@ package model;
 
 public class ScheduleHandler {
 
+getWeek(personnr)
+{}
+getNextWeek(personnr)
+{}
+getPrevWeek()
+{}
+checkin()
+{}
+checkout()
+{}
+modifySchedule()
+{}
+modifySchedule([])
+{}
+
+
+
+
 }
