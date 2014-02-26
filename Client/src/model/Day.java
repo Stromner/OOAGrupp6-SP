@@ -19,6 +19,7 @@ package model;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import org.joda.time.*;
 
@@ -26,26 +27,22 @@ public class Day implements Serializable {
 	
 	private static final long serialVersionUID = -7092684252961129250L;
 
-	//Dagens nummer i veckan, börjar på 0
-	private int dayNr;
 	
-	public DateTime checkInTime;
-	public DateTime checkOutTime;
+	//Variabler här har inga modifiers (private etc.) så att de kan anropas från samma paket utan att behöva skicka
+	//getters och setters-metoder i varje day objekt till servern.
 	
-	public DateTime scheduledInTime;
-	public DateTime scheduledOutTime;
-
+	//Dagens nummer i veckan, börjar på 0, kanske inte behövs då de lagras i ordning i Schema-objektets dayList
+	public int dayNr;
+	ArrayList<DateTime> checkInTime;
+	ArrayList<DateTime> checkOutTime;
+	
 	public Day() {
-
-	}
-	
-	public int getDayNr() {
-		return dayNr;
-	}
-
-	public void setDayNr(int dayNr) {
-		this.dayNr = dayNr;
+		checkInTime = new ArrayList<DateTime>();
+		checkOutTime = new ArrayList<DateTime>();
 	}
 	
 
+	DateTime scheduledInTime;
+	DateTime scheduledOutTime;
+	
 }
