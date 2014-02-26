@@ -14,19 +14,19 @@ import org.joda.time.DateTime;
 
 public class ScheduleHandler {
 	
-	//A list that stores all the schedules (weeks) for the currently logged in user
-	static ArrayList<Schedule> scheduleList = new ArrayList<Schedule>();
+	//A reference to the schedule object that contains all weeks
+	static Schedule userSchedule;
 	
-	//A reference to the currently active schedule (week)
+	//A reference to the currently active week
 	//OBSOBOSBOSBOSBOS GLÖM EJ ÄNDRA TILL PRIVATE OOBSOBOSBOS
-	public Schedule currentSchedule;
+	public Week currentWeek;
 		
 	//The current real week
 	DateTime d = new DateTime();
-	private int currentRealWeek = (new DateTime()).getWeekOfWeekyear();
+	private int currentRealWeekNr = (new DateTime()).getWeekOfWeekyear();
 	
 	//The number of the week that is currently active and chosen with getWeek methods etc. Subtracts 1 to compensate for lists starting at 0.
-	private int currentSelectedWeek = currentRealWeek - 1;
+	private int currentSelectedWeekNr = currentRealWeekNr - 1;
 	
 	//Don't know if this is needed yet
 	@SuppressWarnings("unused")
@@ -41,11 +41,13 @@ public class ScheduleHandler {
 	 */
 	public ScheduleHandler(int personNummer) {
 		this.personNummer = personNummer;
-	//	saveSchedules(0);
-	//	FileManagement.loadSchedules(personNummer);
+		
+		//Här ska en metod finnas för att hämta användarens schema-objekt från servern
+		userSchedule = new Schedule();
+
 		populateYear();
-		currentSchedule = scheduleList.get(currentRealWeek);
-		System.out.println(currentSchedule.week);
+		currentWeek = userSchedule.weekList.get(currentRealWeekNr);
+		System.out.println(currentWeek.weekNr);
 		
 	}
 
@@ -56,21 +58,21 @@ public class ScheduleHandler {
 	 * @return
 	 */
 	void getWeek(int weekNumber) {
-		currentSelectedWeek = weekNumber;
-		currentSchedule = scheduleList.get(weekNumber);
+		currentSelectedWeekNr = weekNumber;
+		currentWeek = userSchedule.weekList.get(weekNumber);
 	}
 
 	
 	void getNextWeek() {
-		currentSelectedWeek++;
-		currentSchedule = scheduleList.get(--currentSelectedWeek);
-		System.out.println("Currently active week: " + currentSchedule.week);
+		currentSelectedWeekNr++;
+		currentWeek = userSchedule.weekList.get(currentSelectedWeekNr);
+		System.out.println("Currently active week: " + currentWeek.weekNr);
 	}
 
 	void getPrevWeek() {
-		currentSelectedWeek--;
-		currentSchedule = scheduleList.get(--currentSelectedWeek);
-		System.out.println("Currently active week: " + currentSchedule.week);
+		currentSelectedWeekNr--;
+		currentWeek = userSchedule.weekList.get(currentRealWeekNr);
+		System.out.println("Currently active week: " + currentWeek.weekNr);
 	}
 
 
@@ -90,7 +92,7 @@ public class ScheduleHandler {
 	public void checkIn() {
 		DateTime currentTime = new DateTime();
 		int currentRealDayofWeek = currentTime.getDayOfWeek();
-		Day currentStampInDay = currentSchedule.days.get(currentRealDayofWeek);
+		Day currentStampInDay = currentWeek.days.get(currentRealDayofWeek);
 		currentStampInDay.checkInTime.add(currentTime);
 		System.out.println("CheckIn: " + currentTime);
 	}
@@ -104,7 +106,7 @@ public class ScheduleHandler {
 	public void checkOut() {
 		DateTime currentTime = new DateTime();
 		int currentRealDayofWeek = currentTime.getDayOfWeek();
-		Day currentStampInDay = currentSchedule.days.get(currentRealDayofWeek);
+		Day currentStampInDay = currentWeek.days.get(currentRealDayofWeek);
 		currentStampInDay.checkOutTime.add(currentTime);
 		System.out.println("CheckOut: " + currentTime);
 	}
@@ -117,27 +119,29 @@ public class ScheduleHandler {
 
 	
 	//Dessa två metoder skapar för närvarande ett helt år med schedule objekt fyllda med tomma dagar.
-	private void populateWeek(Schedule s) {
+	private void populateWeek(Week week) {
 		
 		for(int i = 0; i < 7; i++) {
 			Day day = new Day();
 			day.dayNr = i;
-			s.days.add(day);
+			week.days.add(day);
 		}
 	}
 	
 	private void populateYear() {
 		
 		for(int i = 0; i < 52; i++) {
-			Schedule newWeek = new Schedule();
-			newWeek.week = i;
+			Week newWeek = new Week();
+			newWeek.weekNr = i;
 			populateWeek(newWeek);
-			scheduleList.add(newWeek);
+			userSchedule.weekList.add(newWeek);
 		}
 	}
 	
 	/** 
 	 * Returnerar en sorterad lista med in och utcheckningar för dagen, avslutat med "in" eller "out".
+	 * Kan användas i loggningssyften eller andra syften än själva stapelbyggandet.
+	 * 
 	 * 
 	public ArrayList<String> scheduleToDays (int dayOfWeek) {
 		ArrayList<String> timeList = new ArrayList<String>();
@@ -160,14 +164,20 @@ public class ScheduleHandler {
 	}
 	**/
 	
+	
+	/**
+	 * Translates real time stamps to minutes for easy building of schemastaplarna.
+	 * @param dayofWeek
+	 * @return
+	 */
 	public ArrayList<ArrayList<Integer>> scheduleToDays (int dayofWeek) {
 		ArrayList<ArrayList<Integer>> totalList = new ArrayList<ArrayList<Integer>>(2);
-		ArrayList<Integer> checkInList = new ArrayList<Integer>(currentSchedule.days.get(dayofWeek).checkInTime.size());
-		ArrayList<Integer> checkOutList = new ArrayList<Integer>(currentSchedule.days.get(dayofWeek).checkInTime.size());
-		for (DateTime stamp : currentSchedule.days.get(dayofWeek).checkInTime) {
+		ArrayList<Integer> checkInList = new ArrayList<Integer>(currentWeek.days.get(dayofWeek).checkInTime.size());
+		ArrayList<Integer> checkOutList = new ArrayList<Integer>(currentWeek.days.get(dayofWeek).checkInTime.size());
+		for (DateTime stamp : currentWeek.days.get(dayofWeek).checkInTime) {
 			checkInList.add(stamp.getMinuteOfDay());
 		}
-		for (DateTime stamp : currentSchedule.days.get(dayofWeek).checkOutTime) {
+		for (DateTime stamp : currentWeek.days.get(dayofWeek).checkOutTime) {
 			checkOutList.add(stamp.getMinuteOfDay());
 		}
 		totalList.add(checkInList);

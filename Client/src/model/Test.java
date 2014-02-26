@@ -2,6 +2,14 @@ package model;
 
 import org.joda.time.DateTime;
 
+/**
+ * Klassen skapar lite värden i testsyfte för att bygga schema staplar i GUIt
+ * 
+ * @author Simon
+ *
+ */
+
+
 public class Test {
 	
 	public Test() {
@@ -11,12 +19,11 @@ public class Test {
 		DateTime dt3 = new DateTime(2014,02,27,10,30,00);
 		DateTime dt4 = new DateTime(2014,02,26,18,00,00);
 		
-		scheduleHandler.currentSchedule.days.get(0).checkInTime.add(dt1);
-		scheduleHandler.currentSchedule.days.get(0).checkOutTime.add(dt2);
-		scheduleHandler.currentSchedule.days.get(1).checkInTime.add(dt3);
-		scheduleHandler.currentSchedule.days.get(1).checkOutTime.add(dt4);
-		scheduleHandler.scheduleToDays(0);
+		scheduleHandler.currentWeek.days.get(0).checkInTime.add(dt1);
+		scheduleHandler.currentWeek.days.get(0).checkOutTime.add(dt2);
+		scheduleHandler.currentWeek.days.get(1).checkInTime.add(dt3);
+		scheduleHandler.currentWeek.days.get(1).checkOutTime.add(dt4);
+		scheduleHandler.scheduleToDays(1);
 		
 	}
-
 }

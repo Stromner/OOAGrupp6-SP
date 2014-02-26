@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 public class FileManagement {
 
@@ -81,6 +80,8 @@ public class FileManagement {
 	
 	
 	/**
+	 * Sparar dessa metoder men det verkar som att de ej kommer behöva användas 
+	 * 
 	 * Saves the current list of schedules to a file named personNummer.ser
 	 * Some debug information remains
 	 * @param personNummer 
@@ -92,7 +93,7 @@ public class FileManagement {
 		try {
 		        fout = new FileOutputStream(personNummer + ".ser", true);
 		        oos = new ObjectOutputStream(fout);
-		        oos.writeObject(ScheduleHandler.scheduleList);
+		        oos.writeObject(ScheduleHandler.userSchedule);
 		        System.out.println("Schedule has been saved");
 		} catch (Exception e) {
 		        e.printStackTrace();
@@ -117,15 +118,14 @@ public class FileManagement {
 	 * Some debug information remains
 	 * @param personNummer
 	 */
-	@SuppressWarnings("unchecked")
 	public static void loadSchedules(int personNummer) {
 		ObjectInputStream objInStream = null;
 		FileInputStream streamIn = null;
 		 try {
 		        streamIn = new FileInputStream(0 + ".ser");
 		        objInStream = new ObjectInputStream(streamIn);
-				ArrayList<Schedule> readCase = (ArrayList<Schedule>) objInStream.readObject();
-		        ScheduleHandler.scheduleList.addAll(readCase);
+				Schedule readSchedule = (Schedule) objInStream.readObject();
+		        ScheduleHandler.userSchedule = readSchedule;
 		        System.out.println("Schedule has been loaded");
 
 
