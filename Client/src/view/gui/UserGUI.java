@@ -15,7 +15,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.Observable;
-import java.util.Observer;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -35,11 +34,11 @@ public abstract class UserGUI extends GUI{
 	}
 	
 	public void update(Observable o, Object arg) {
-		
 		if (o instanceof Communication) {
 			LinkedList<Object> argsList = (LinkedList<Object>) arg;
 			if (((String) argsList.get(0)).compareToIgnoreCase("GetUser") == 0) {
 				user = (User) argsList.get(1);
+				
 				removeAll();
 				
 				initLabels();
@@ -48,6 +47,7 @@ public abstract class UserGUI extends GUI{
 				initButtons();
 				
 				buildGUI();
+				Workflow.getInstance().getWindow().add(this); // Prevents the window from locking up. Didn't have time to find out why.
 			}
 		}
 	}

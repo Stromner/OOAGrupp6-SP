@@ -11,14 +11,10 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.LinkedList;
-import java.util.Observable;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import model.Communication;
-import model.User;
 import controller.ActionHandler;
 
 public class AdminGUI extends UserGUI {
@@ -66,6 +62,9 @@ public class AdminGUI extends UserGUI {
 
 		// Init newTimeSlot
 		tempButton = new JButton("New Time Slot");
+		if(user == null){
+			((JButton) tempButton).setEnabled(false);
+		}
 		tempButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ActionHandler.getInstance().newTimeSlotDialog();
@@ -75,6 +74,9 @@ public class AdminGUI extends UserGUI {
 
 		// Init createDefaultSchedule
 		tempButton = new JButton("Create Default Schedule");
+		if(user == null){
+			((JButton) tempButton).setEnabled(false);
+		}
 		tempButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
