@@ -8,26 +8,22 @@
 package controller;
 
 import model.Communication;
-import model.schedule.ScheduleHandler;
-import view.JSchedule;
+import model.schedule.Schedule;
 import view.Window;
 
 public class Workflow {
 	private static Workflow workflow;
 	private Communication communication;
 	private Window window;
-	private JSchedule jSchedule;
-	private ScheduleHandler scheduleHandler;
+	private Schedule schedule;
 
 	/**
 	 * Set up all classes that workflow needs to manage
 	 */
 	private Workflow() {
 		communication = new Communication();
-		scheduleHandler = new ScheduleHandler();
-		communication.addObserver(scheduleHandler);
-		jSchedule = new JSchedule();
-		communication.addObserver(jSchedule);
+		schedule = new Schedule();
+		communication.addObserver(schedule);
 		new Thread() {
 			public void run() {
 				window = new Window();
@@ -59,20 +55,9 @@ public class Workflow {
 	}
 	
 	/**
-	 * @return instance of JSchedule
-	 */
-	public JSchedule getJSchedule(){
-		return jSchedule;
-	}
-	
-	/**
 	 * @return instance of ScheduleHandler
 	 */
-	public ScheduleHandler getScheduleHandler(){
-		return scheduleHandler;
-	}
-	
-	public void setScheduleHandler(ScheduleHandler o){
-		scheduleHandler = o;
+	public Schedule getSchedule(){
+		return schedule;
 	}
 }

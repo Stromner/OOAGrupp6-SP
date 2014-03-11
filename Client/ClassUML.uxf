@@ -5,7 +5,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>550</x>
-      <y>1160</y>
+      <y>1275</y>
       <w>520</w>
       <h>230</h>
     </coordinates>
@@ -44,7 +44,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1640</x>
-      <y>410</y>
+      <y>525</y>
       <w>220</w>
       <h>175</h>
     </coordinates>
@@ -76,7 +76,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1180</x>
-      <y>255</y>
+      <y>370</y>
       <w>105</w>
       <h>140</h>
     </coordinates>
@@ -104,7 +104,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1450</x>
-      <y>445</y>
+      <y>560</y>
       <w>180</w>
       <h>140</h>
     </coordinates>
@@ -132,7 +132,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>0</x>
-      <y>885</y>
+      <y>1000</y>
       <w>180</w>
       <h>120</h>
     </coordinates>
@@ -158,7 +158,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1150</x>
-      <y>620</y>
+      <y>735</y>
       <w>170</w>
       <h>120</h>
     </coordinates>
@@ -185,7 +185,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>765</x>
-      <y>425</y>
+      <y>540</y>
       <w>165</w>
       <h>115</h>
     </coordinates>
@@ -210,7 +210,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1100</x>
-      <y>85</y>
+      <y>200</y>
       <w>130</w>
       <h>105</h>
     </coordinates>
@@ -234,7 +234,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>475</x>
-      <y>600</y>
+      <y>715</y>
       <w>175</w>
       <h>95</h>
     </coordinates>
@@ -258,7 +258,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1015</x>
-      <y>1015</y>
+      <y>1130</y>
       <w>220</w>
       <h>95</h>
     </coordinates>
@@ -281,7 +281,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1480</x>
-      <y>220</y>
+      <y>335</y>
       <w>170</w>
       <h>90</h>
     </coordinates>
@@ -303,7 +303,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1260</x>
-      <y>765</y>
+      <y>880</y>
       <w>165</w>
       <h>90</h>
     </coordinates>
@@ -325,7 +325,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>995</x>
-      <y>255</y>
+      <y>370</y>
       <w>145</w>
       <h>70</h>
     </coordinates>
@@ -345,7 +345,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>0</x>
-      <y>765</y>
+      <y>880</y>
       <w>175</w>
       <h>70</h>
     </coordinates>
@@ -365,7 +365,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1035</x>
-      <y>765</y>
+      <y>880</y>
       <w>165</w>
       <h>90</h>
     </coordinates>
@@ -386,7 +386,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1350</x>
-      <y>145</y>
+      <y>260</y>
       <w>170</w>
       <h>60</h>
     </coordinates>
@@ -405,7 +405,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>570</x>
-      <y>765</y>
+      <y>880</y>
       <w>205</w>
       <h>60</h>
     </coordinates>
@@ -424,7 +424,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>180</x>
-      <y>765</y>
+      <y>880</y>
       <w>185</w>
       <h>60</h>
     </coordinates>
@@ -443,7 +443,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>785</x>
-      <y>765</y>
+      <y>880</y>
       <w>175</w>
       <h>60</h>
     </coordinates>
@@ -462,7 +462,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>370</x>
-      <y>765</y>
+      <y>880</y>
       <w>190</w>
       <h>60</h>
     </coordinates>
@@ -481,7 +481,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1135</x>
-      <y>895</y>
+      <y>1010</y>
       <w>170</w>
       <h>60</h>
     </coordinates>
@@ -500,7 +500,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>935</x>
-      <y>895</y>
+      <y>1010</y>
       <w>170</w>
       <h>60</h>
     </coordinates>
@@ -519,7 +519,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1390</x>
-      <y>315</y>
+      <y>430</y>
       <w>170</w>
       <h>55</h>
     </coordinates>
@@ -537,7 +537,7 @@
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>1120</x>
-      <y>0</y>
+      <y>115</y>
       <w>85</w>
       <h>35</h>
     </coordinates>
@@ -553,7 +553,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1105</x>
-      <y>725</y>
+      <y>840</y>
       <w>54</w>
       <h>49</h>
     </coordinates>
@@ -564,7 +564,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1305</x>
-      <y>725</y>
+      <y>840</y>
       <w>44</w>
       <h>49</h>
     </coordinates>
@@ -575,7 +575,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1080</x>
-      <y>840</y>
+      <y>955</y>
       <w>24</w>
       <h>64</h>
     </coordinates>
@@ -586,7 +586,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1130</x>
-      <y>840</y>
+      <y>955</y>
       <w>24</w>
       <h>64</h>
     </coordinates>
@@ -597,7 +597,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>450</x>
-      <y>680</y>
+      <y>795</y>
       <w>114</w>
       <h>94</h>
     </coordinates>
@@ -608,7 +608,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>565</x>
-      <y>680</y>
+      <y>795</y>
       <w>119</w>
       <h>94</h>
     </coordinates>
@@ -619,7 +619,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>575</x>
-      <y>680</y>
+      <y>795</y>
       <w>309</w>
       <h>94</h>
     </coordinates>
@@ -630,7 +630,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>255</x>
-      <y>680</y>
+      <y>795</y>
       <w>299</w>
       <h>94</h>
     </coordinates>
@@ -641,7 +641,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>75</x>
-      <y>680</y>
+      <y>795</y>
       <w>469</w>
       <h>94</h>
     </coordinates>
@@ -652,7 +652,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1005</x>
-      <y>940</y>
+      <y>1055</y>
       <w>114</w>
       <h>84</h>
     </coordinates>
@@ -663,7 +663,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1115</x>
-      <y>940</y>
+      <y>1055</y>
       <w>119</w>
       <h>84</h>
     </coordinates>
@@ -674,7 +674,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1145</x>
-      <y>20</y>
+      <y>135</y>
       <w>24</w>
       <h>74</h>
     </coordinates>
@@ -685,7 +685,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>550</x>
-      <y>525</y>
+      <y>640</y>
       <w>259</w>
       <h>84</h>
     </coordinates>
@@ -696,7 +696,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>875</x>
-      <y>525</y>
+      <y>640</y>
       <w>369</w>
       <h>104</h>
     </coordinates>
@@ -707,7 +707,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1175</x>
-      <y>175</y>
+      <y>290</y>
       <w>64</w>
       <h>89</h>
     </coordinates>
@@ -718,7 +718,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>910</x>
-      <y>175</y>
+      <y>290</y>
       <w>269</w>
       <h>924</h>
     </coordinates>
@@ -729,7 +729,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>830</x>
-      <y>175</y>
+      <y>290</y>
       <w>329</w>
       <h>259</h>
     </coordinates>
@@ -740,7 +740,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>835</x>
-      <y>1095</y>
+      <y>1210</y>
       <w>299</w>
       <h>74</h>
     </coordinates>
@@ -751,7 +751,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>805</x>
-      <y>810</y>
+      <y>925</y>
       <w>79</w>
       <h>359</h>
     </coordinates>
@@ -762,7 +762,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>660</x>
-      <y>810</y>
+      <y>925</y>
       <w>139</w>
       <h>359</h>
     </coordinates>
@@ -773,7 +773,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>255</x>
-      <y>810</y>
+      <y>925</y>
       <w>524</w>
       <h>359</h>
     </coordinates>
@@ -784,7 +784,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>85</x>
-      <y>820</y>
+      <y>935</y>
       <w>684</w>
       <h>349</h>
     </coordinates>
@@ -795,7 +795,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>855</x>
-      <y>725</y>
+      <y>840</y>
       <w>469</w>
       <h>444</h>
     </coordinates>
@@ -806,7 +806,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>75</x>
-      <y>820</y>
+      <y>935</y>
       <w>24</w>
       <h>74</h>
     </coordinates>
@@ -817,7 +817,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>450</x>
-      <y>810</y>
+      <y>925</y>
       <w>339</w>
       <h>359</h>
     </coordinates>
@@ -828,7 +828,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>870</x>
-      <y>310</y>
+      <y>425</y>
       <w>204</w>
       <h>534</h>
     </coordinates>
@@ -839,7 +839,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>865</x>
-      <y>840</y>
+      <y>955</y>
       <w>494</w>
       <h>329</h>
     </coordinates>
@@ -850,7 +850,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>825</x>
-      <y>840</y>
+      <y>955</y>
       <w>304</w>
       <h>329</h>
     </coordinates>
@@ -861,7 +861,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>845</x>
-      <y>940</y>
+      <y>1055</y>
       <w>409</w>
       <h>229</h>
     </coordinates>
@@ -872,7 +872,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>815</x>
-      <y>940</y>
+      <y>1055</y>
       <w>199</w>
       <h>229</h>
     </coordinates>
@@ -883,7 +883,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>75</x>
-      <y>990</y>
+      <y>1105</y>
       <w>684</w>
       <h>179</h>
     </coordinates>
@@ -894,7 +894,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>95</x>
-      <y>380</y>
+      <y>495</y>
       <w>1144</w>
       <h>474</h>
     </coordinates>
@@ -905,7 +905,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>825</x>
-      <y>380</y>
+      <y>495</y>
       <w>404</w>
       <h>179</h>
     </coordinates>
@@ -916,7 +916,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>85</x>
-      <y>380</y>
+      <y>495</y>
       <w>1169</w>
       <h>654</h>
     </coordinates>
@@ -927,7 +927,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>800</x>
-      <y>380</y>
+      <y>495</y>
       <w>639</w>
       <h>1029</h>
     </coordinates>
@@ -938,7 +938,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1230</x>
-      <y>570</y>
+      <y>685</y>
       <w>314</w>
       <h>199</h>
     </coordinates>
@@ -949,7 +949,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>95</x>
-      <y>570</y>
+      <y>685</y>
       <w>1464</w>
       <h>849</h>
     </coordinates>
@@ -960,7 +960,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>1060</x>
-      <y>310</y>
+      <y>425</y>
       <w>159</w>
       <h>104</h>
     </coordinates>
@@ -971,7 +971,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>460</x>
-      <y>570</y>
+      <y>685</y>
       <w>1279</w>
       <h>859</h>
     </coordinates>

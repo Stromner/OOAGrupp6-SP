@@ -36,6 +36,6 @@ public class TimeTextPanel extends JPanel {
 	}
 	
 	public String getTime(){
-		return hour.getText()+":"+minute.getText();
+		return hour.getText()+minute.getText();
 	}
 }

@@ -117,7 +117,6 @@ public class Communication extends Observable {
 
 		try {
 			out.writeObject(argsList);
-			out.flush();
 		} catch (Exception e) {
 			disconnect();
 		}

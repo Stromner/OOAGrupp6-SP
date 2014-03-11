@@ -44,7 +44,7 @@ public class TimeField extends JTextField {
 			if (getLength() < 2) {
 				char[] chars = str.toCharArray();
 				boolean ok = true;
-				System.out.println();
+				
 				for (int i = 0; i < chars.length; i++) {
 
 					try {

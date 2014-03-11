@@ -18,15 +18,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import model.Communication;
 import model.FileManagement;
 import controller.ActionHandler;
 
-public class NetworkDialog extends CustomDialog {
+public class NetworkDialog extends StandardButtonsDialog {
 	private static final long serialVersionUID = 1894512864549284805L;
 
-	public NetworkDialog(Communication communication) {
-		super(communication);
+	public NetworkDialog(Object ... o) {
+		super();
 
 		setTitle("Network");
 	}

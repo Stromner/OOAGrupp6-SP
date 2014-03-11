@@ -1,0 +1,37 @@
+// Bug
+* Fixa så att servern sänder "GetUser" när man skapar en time slot.
+	* Inte kunnat testat men troligt att samma bug händer efter att man ger checkIn/Out
+* När man loggar in som employee så får man inte schemat på direkten(Kolla på servern ifall det är employee => skicka schema)
+* VeckanLabel:n uppdateras inte som den ska(möjligt att det är kopplat till get next/previous week problemet)
+
+* Säkra new time slot så att:
+	* Den kollar att hours och minutes har något ogiltigt värde: (hours>24 || minutes >60 || (hours>24 && minutes> 0))
+		* Om den får det så ska det idealt defaulta till något värde(t.ex 0000 om man anger något över 2400).
+	* Fyller ut half färdiga fält med nollor(i.e 5 ska vara 05).
+
+* Gör så att ifall man får en Admin ifrån getuser så ska inte time slot knapparna kunna aktiveras
+
+* Fixa null pointer problemet med communication
+
+* Om man tappar connection med servern så borde det komma upp en varning om att man har gjort det
+	* Möjlighet för servern att acceptera klienten igen utan att behöva logga ut.
+
+* Ligger någon buffrad knapptryckning som gör att previous/next inte registrerar som de ska.
+
+* Loggad tid uppdateras inte i realtid, kalla på någon metod eller köra det på en egen tråd som uppdaterar 1gång/minute eller så borde räcka
+
+					* Check in fungerar inte som det ska
+
+
+// Features
+* Lägg till så att det står Mon -> Sun på toppen toolbaren.
+
+* TimeSlotDialog ska visa någon slags information(Tror det är möjligt att ha en rad "Object ... o" som inparam till metoden som skapar dialogerna)
+
+* Gör så att check in loopar runt(ifall man fortfarande är inloggad vid slutet av dan => logga ut, logga in på nästa dag)
+
+* Skriv create default schedule
+
+* Visa start stop tid utan att trycka på knappen
+
+* Lägg till möjligheter för admin att kunna öppna en timeslot dialog och ändra/ta bort(Om Admin: EditTimeSlotDialog Annars: GetTimeSlotDialog).

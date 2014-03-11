@@ -71,7 +71,8 @@ public class AdminGUI extends UserGUI {
 			}
 		});
 		components.put("newTimeSlotButton", tempButton);
-
+		
+		/*
 		// Init createDefaultSchedule
 		tempButton = new JButton("Create Default Schedule");
 		if(user == null){
@@ -83,7 +84,7 @@ public class AdminGUI extends UserGUI {
 				ActionHandler.getInstance().createDefaultSchedule(user);
 			}
 		});
-		components.put("createDefaultSchedule", tempButton);
+		components.put("createDefaultSchedule", tempButton);*/
 	}
 
 	/**
@@ -123,12 +124,13 @@ public class AdminGUI extends UserGUI {
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.insets = new Insets(5, 0, 0, 0);
 		topMenuPanel.add(components.get("newTimeSlotButton"), c);
-
+		
+		/*
 		// createDefaultSchedule
 		c = new GridBagConstraints();
 		c.gridy = 4;
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.insets = new Insets(5, 0, 0, 0);
-		topMenuPanel.add(components.get("createDefaultSchedule"), c);
+		topMenuPanel.add(components.get("createDefaultSchedule"), c);*/
 	}
 }

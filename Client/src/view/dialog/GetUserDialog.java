@@ -29,12 +29,13 @@ import model.Communication;
 import swing.RegexJComboBox;
 import controller.ActionHandler;
 
-public class GetUserDialog extends CustomDialog implements Observer {
+public class GetUserDialog extends StandardButtonsDialog implements Observer {
 	private static final long serialVersionUID = 5483970718795036901L;
 
-	public GetUserDialog(Communication communication) {
-		super(communication);
-
+	public GetUserDialog(Object ... o) {
+		super();
+		
+		Communication communication = (Communication)o[0];
 		communication.addObserver(this);
 		communication.send("GetAllUsers");
 		setTitle("Get User");

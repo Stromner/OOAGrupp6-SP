@@ -1,37 +1,42 @@
-package model.schedule;
 /**
- * Write a description of class Day here.
+ * Contains all the logged and planned time for this day.
  * 
- * @author Simon Planhage
- * @version 2013-02-28
+ * @author David Stromner
+ * @version 2014-03-07
  */
 
+package model.schedule;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
-import org.joda.time.*;
+public class Day implements Serializable{
+	private static final long serialVersionUID = -6952680822314185328L;
+	private LinkedList<TimeSlot> loggedTime;
+	private LinkedList<TimeSlot> plannedTime;
 
-public class Day implements Serializable {
-	
-	private static final long serialVersionUID = -7092684252961129250L;
-
-	
-	//Variabler h�r har inga modifiers (private etc.) s� att de kan anropas fr�n samma paket utan att beh�va skicka
-	//getters och setters-metoder i varje day objekt till servern.
-	
-	//Dagens nummer i veckan, b�rjar p� 0, kanske inte beh�vs d� de lagras i ordning i Schema-objektets dayList
-	public int dayNr;
-	ArrayList<DateTime> checkInTime;
-	ArrayList<DateTime> checkOutTime;
-	
 	public Day() {
-		checkInTime = new ArrayList<DateTime>();
-		checkOutTime = new ArrayList<DateTime>();
+		loggedTime = new LinkedList<TimeSlot>();
+		plannedTime = new LinkedList<TimeSlot>();
+	}
+
+	public LinkedList<TimeSlot> getLoggedTime() {
+		return loggedTime;
+	}
+
+	public LinkedList<TimeSlot> getPlannedTime() {
+		return plannedTime;
 	}
 	
-
-	DateTime scheduledInTime;
-	DateTime scheduledOutTime;
-	
+	/**
+	 * Add a planned time slot for the current day.
+	 * 
+	 * @param start
+	 *            time for the time slot.
+	 * @param stop
+	 *            time for the time slot.
+	 */
+	public void addPlannedTime(int start, int stop) {
+		plannedTime.addLast(new TimeSlot(start, stop));
+	}
 }

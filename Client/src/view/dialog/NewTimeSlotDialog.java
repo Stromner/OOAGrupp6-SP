@@ -19,18 +19,16 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import model.Communication;
-
 import org.joda.time.DateTime;
 
 import swing.TimeTextPanel;
 import controller.ActionHandler;
 
-public class NewTimeSlotDialog extends CustomDialog {
+public class NewTimeSlotDialog extends StandardButtonsDialog {
 	private static final long serialVersionUID = 6654368973245373300L;
 
-	public NewTimeSlotDialog(Communication communication) {
-		super(communication);
+	public NewTimeSlotDialog(Object ... o) {
+		super();
 
 		setTitle("New Time Slot");
 	}

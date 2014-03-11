@@ -1,5 +1,5 @@
 /**
- * Base abstract class for all custom dialogs, contains an empty Ok-button and an Cancel-button.
+ * Base abstract class for all custom dialogs.
  * 
  * @author David Stromner
  * @version 2014-02-24
@@ -10,19 +10,13 @@ package view.dialog;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.HashMap;
 
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 
-import model.Communication;
-import controller.ActionHandler;
-
 public abstract class CustomDialog extends JDialog {
-	private static final long serialVersionUID = 4131677888057562310L;
+	private static final long serialVersionUID = -5915821852060912326L;
 	private JPanel canvas;
 	protected final CustomDialog customDialog = this;
 	protected HashMap<String, Container> components;
@@ -31,7 +25,7 @@ public abstract class CustomDialog extends JDialog {
 	 * Create and build all components for the dialog. Set the dialog to
 	 * blocking(no other window can be touched) and non-resizable.
 	 */
-	public CustomDialog(Communication communication) {
+	public CustomDialog(Object ... o) {
 		super();
 		components = new HashMap<String, Container>();
 
@@ -66,23 +60,6 @@ public abstract class CustomDialog extends JDialog {
 		temp = new JPanel();
 		temp.setLayout(new GridBagLayout());
 		components.put("wrapperPanel", temp);
-
-		// ToolbarPanel
-		temp = new JPanel();
-		components.put("toolbarPanel", temp);
-
-		// CancelButton
-		temp = new JButton("Cancel");
-		((JButton) temp).addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ActionHandler.getInstance().dialogCancel(customDialog);
-			}
-		});
-		components.put("cancelButton", temp);
-
-		// An OKButton needs to be created in a subclass since each OKButton is
-		// going to trigger different things.
 	}
 
 	/**
@@ -98,17 +75,6 @@ public abstract class CustomDialog extends JDialog {
 		c.ipadx = 60;
 		c.ipady = 20;
 		components.get("wrapperPanel").add(canvas, c);
-
-		// ToolbarPanel
-		c.gridx = 0;
-		c.gridy = 1;
-		components.get("wrapperPanel").add(components.get("toolbarPanel"), c);
-
-		// OkButton
-		components.get("toolbarPanel").add(components.get("okButton"), c);
-
-		// CancelButton
-		components.get("toolbarPanel").add(components.get("cancelButton"), c);
 
 		add(components.get("wrapperPanel"));
 	}

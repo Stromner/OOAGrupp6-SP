@@ -11,11 +11,17 @@ import java.awt.Container;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import model.FileManagement;
 import model.User;
+import model.schedule.Schedule;
+import model.schedule.TimeSlot;
+
+import org.joda.time.DateTime;
+
 import swing.TimeTextPanel;
 import view.dialog.CustomDialog;
 
@@ -120,7 +126,6 @@ public class ActionHandler {
 		Workflow.getInstance().getCommunication().send("Logout");
 		Workflow.getInstance().getCommunication().disconnect();
 		Workflow.getInstance().getWindow().setView("LoginGUI");
-		Workflow.getInstance().setScheduleHandler(null);
 	}
 
 	/**
@@ -143,15 +148,37 @@ public class ActionHandler {
 		JButton out = (JButton) checkOut;
 		in.setEnabled(true);
 		out.setEnabled(false);
+		
 		Workflow.getInstance().getCommunication().send("CheckOut");
 	}
 	
 	/**
-	 * Create a default schedule for the current user in admin.
+	 * Get the next week(if it exists) from the user's schedule.
+	 * 
+	 * @param weekLabel change the value that week label should show.
 	 */
-	public void createDefaultSchedule(User user){
-		Workflow.getInstance().getCommunication().send("CreateDefaultSchedule", user);
-		Workflow.getInstance().getCommunication().send("GetUser", user.getPerNr());
+	public void getNextWeek(Container weekLabel){
+		JLabel week = (JLabel)weekLabel;
+		week.setText("Week: " + Workflow.getInstance().getSchedule().getCurrentWeek().getWeek());
+		
+		Workflow.getInstance().getSchedule().getNextWeek();
+	}
+	
+	/**
+	 * Get the previous week(if it exists) from the user's schedule.
+	 * 
+	 * @param weekLabel change the value that week label should show.
+	 */
+	public void getPreviousWeek(Container weekLabel){
+		JLabel week = (JLabel)weekLabel;
+		week.setText("Week: " + Workflow.getInstance().getSchedule().getCurrentWeek().getWeek());
+		
+		Workflow.getInstance().getSchedule().getPreviousWeek();
+	}
+	
+	public void getTimeSlotDialog(TimeSlot timeSlot){
+		System.out.println(timeSlot.toString());
+		Workflow.getInstance().getWindow().getDialog("TimeSlotDialog", timeSlot).setVisible(true);
 	}
 
 	/**
@@ -168,7 +195,7 @@ public class ActionHandler {
 	 * editing a current user. Request all users from the server.
 	 */
 	public void editUserDialog() {
-		Workflow.getInstance().getWindow().getDialog("EditUserDialog")
+		Workflow.getInstance().getWindow().getDialog("EditUserDialog", Workflow.getInstance().getCommunication())
 				.setVisible(true);
 	}
 
@@ -177,7 +204,7 @@ public class ActionHandler {
 	 * user.
 	 */
 	public void getUserDialog() {
-		Workflow.getInstance().getWindow().getDialog("GetUserDialog")
+		Workflow.getInstance().getWindow().getDialog("GetUserDialog", Workflow.getInstance().getCommunication())
 				.setVisible(true);
 	}
 
@@ -296,7 +323,7 @@ public class ActionHandler {
 
 		User user = new User(username.getText(), new String(
 				password.getPassword()), authority.getSelectedItem().toString());
-		Workflow.getInstance().getScheduleHandler().setScheduleHandler(user);
+		user.setSchedule(new Schedule());
 
 		Workflow.getInstance().getCommunication().send("NewUser", user);
 	}
@@ -365,13 +392,24 @@ public class ActionHandler {
 		int year = Integer.parseInt(((JComboBox) yearComboBox)
 				.getSelectedItem().toString());
 		int week = Integer.parseInt(((JComboBox) weekComboBox)
-				.getSelectedItem().toString())-1;
-		String start = ((TimeTextPanel) startPanel).getTime();
-		String stop = ((TimeTextPanel) stopPanel).getTime();
+				.getSelectedItem().toString());
+		int start = Integer.parseInt(((TimeTextPanel) startPanel).getTime());
+		int stop = Integer.parseInt(((TimeTextPanel) stopPanel).getTime());
 
-		// Tell model to add the panel
-		Workflow.getInstance().getCommunication()
-				.send("NewTimeSlot", year, week, day, start, stop);
-		customDialog.setVisible(false);
+		// Check if the time for the time slot is ok(is not in the past)
+		DateTime time = new DateTime();
+		if ((year < time.getYear())
+				|| (year == time.getYear() && week < time.getWeekOfWeekyear())) {
+			Workflow.getInstance().getWindow()
+					.setErrorMessage("Can't schedule a week into the past");
+		} else if (stop <= start) {
+			Workflow.getInstance().getWindow()
+					.setErrorMessage("Stop time must be greater than start time.");
+		} else {
+			// Tell server to add the panel to our schedule.
+			Workflow.getInstance().getCommunication()
+					.send("NewTimeSlot", year, week, day, start, stop);
+			customDialog.setVisible(false);
+		}
 	}
 }

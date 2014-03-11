@@ -8,7 +8,6 @@
 package view;
 
 import java.awt.Frame;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
@@ -24,13 +23,9 @@ import controller.Workflow;
 
 public class Window extends JFrame implements Observer {
 	private static final long serialVersionUID = 7991892771427260131L;
-	private HashMap<String, GUI> interfaceList;
-	private HashMap<String, CustomDialog> dialogList;
 
 	public Window() {
 		Workflow.getInstance().getCommunication().addObserver(this);
-		interfaceList = new HashMap<String, GUI>();
-		dialogList = new HashMap<String, CustomDialog>();
 		createFrame();
 	}
 
@@ -87,20 +82,19 @@ public class Window extends JFrame implements Observer {
 		String s = "view.gui." + key;
 		try {
 			GUI c = (GUI) Class.forName(s).newInstance();
-			interfaceList.put(key, c);
-			Workflow.getInstance().getCommunication().addObserver(interfaceList.get(key));
+			Workflow.getInstance().getCommunication().addObserver(c);
+			getContentPane().removeAll();
+			add(c.getCanvas());
+			pack();
+			setMinimumSize(getPreferredSize());
+			// Needs to be called after add because of internal layouts
+			setExtendedState(Frame.MAXIMIZED_BOTH);
+
 			// So many exceptions
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		getContentPane().removeAll();
-		add(interfaceList.get(key).getCanvas());
-		pack();
-		setMinimumSize(getPreferredSize());
-		setExtendedState(Frame.MAXIMIZED_BOTH); // Needs to be called
-		// after add because of
-		// internal layouts
 	}
 
 	/**
@@ -110,17 +104,19 @@ public class Window extends JFrame implements Observer {
 	 *            name of the dialog window. Must be identic to the class name.
 	 * @return instance of the dialog, null otherwise.
 	 */
-	public JDialog getDialog(String key) {
+	public JDialog getDialog(String key, Object ... o) {
 		try {
 			String s = "view.dialog." + key;
-			CustomDialog c = (CustomDialog) Class.forName(s)
-					.getConstructor(Communication.class)
-					.newInstance(Workflow.getInstance().getCommunication());
-			dialogList.put(key, c);
-			// So many exceptions
+			CustomDialog c = (CustomDialog) Class.forName(s).
+					getConstructor(Object[].class).
+					newInstance((Object)o);
+			return c;
+			
+			
+		// So many exceptions
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-		return dialogList.get(key);
 	}
 }

@@ -9,17 +9,16 @@ import controller.Workflow;
  * @author Henrik Johansson
  * @version 2013-02-27
  */
-public class Main {	
+public class Main {
+	private static Workflow workflow;
 	public static void main(String[] args) {
 		
 		if(args.length == 0){
-			Workflow flow = new Workflow();	
+			workflow = new Workflow();	
 			
 		}else if(args[0].equals("reset")){
-			FileManagement fileMan = new FileManagement();				//Reset the users.bin so that there is only one user. Login: Admin Password: Admin
-			fileMan.writeUsersFile("users.bin");						//Use this if you have edited the user or the users.bin file is corrupt or non existing
-		
-				
+			FileManagement fileMan = new FileManagement(); //Reset the users.bin so that there is only one user. Login: Admin Password: Admin
+			fileMan.writeUsersFile("users.bin"); //Use this if you have edited the user or the users.bin file is corrupt or non existing
 		}
 
 	}

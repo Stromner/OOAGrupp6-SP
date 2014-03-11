@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import controller.ActionHandler;
+import controller.Workflow;
 
 public class EmployeeGUI extends UserGUI {
 	private static final long serialVersionUID = -6805802081178406024L;

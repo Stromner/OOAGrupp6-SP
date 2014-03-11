@@ -46,9 +46,7 @@ public abstract class GUI extends JPanel implements Observer {
 		buildGUI();
 	}
 
-	public void update(Observable o, Object arg) {
-
-	}
+	public void update(Observable o, Object arg) {}
 
 	/**
 	 * @return canvas contains all objects to be displayed in a single panel.

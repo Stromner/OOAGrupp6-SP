@@ -31,8 +31,8 @@ import controller.ActionHandler;
 public class EditUserDialog extends GetUserDialog implements Observer {
 	private static final long serialVersionUID = -274172269787570689L;
 
-	public EditUserDialog(Communication communication) {
-		super(communication);
+	public EditUserDialog(Object ... o) {
+		super(o[0]);
 
 		setTitle("Edit User");
 	}
