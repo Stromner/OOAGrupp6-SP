@@ -40,7 +40,7 @@ public class EditUserDialog extends GetUserDialog implements Observer {
 	public void update(Observable o, Object arg) {
 		super.update(o, arg);
 		if (o instanceof Communication) {
-			LinkedList<Object> argsList = (LinkedList<Object>) arg;
+			LinkedList<?> argsList = (LinkedList<?>) arg;
 
 			// Check what type of message was received
 			if (((String) argsList.get(0)).compareToIgnoreCase("GetUser") == 0) {
@@ -296,7 +296,6 @@ public class EditUserDialog extends GetUserDialog implements Observer {
 	 */
 	private void buildGetUser() {
 		GridBagConstraints c;
-		JPanel canvas = getCanvas();
 		JPanel getUser = (JPanel) components.get("gUPanel");
 
 		// Label

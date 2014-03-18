@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
@@ -12,7 +11,9 @@ import model.schedule.Day;
 import model.schedule.Schedule;
 import model.schedule.TimeSlot;
 import net.miginfocom.swing.MigLayout;
+import swing.TimeJButton;
 import controller.ActionHandler;
+
 
 public class JDay extends JLayeredPane {
 	private static final long serialVersionUID = -7329575071810998439L;
@@ -22,11 +23,14 @@ public class JDay extends JLayeredPane {
 	public JDay(Schedule schedule, int day) {
 		this.day = day;
 		this.schedule = schedule;
-
+ 
 		setLayout(new MigLayout("fill, wrap 1"));
 		init();
 	}
 
+	/**
+	 * Init and place all the components
+	 */
 	private void init() {
 		if (schedule != null) {
 			Day tempDay = schedule.getCurrentWeek().getDays().get(day);
@@ -35,13 +39,13 @@ public class JDay extends JLayeredPane {
 			// Add all planned panels
 			layer = 0;
 			for (TimeSlot timeSlot : tempDay.getPlannedTime()) {
-				JButton button = new JButton();
+				TimeJButton button = new TimeJButton(timeSlot);
 				add(button, ""+calculatePercentage(timeSlot.getStartTime(),timeSlot.getStopTime()) + ", " + calculatePercentage(timeSlot.getStartTime()));
 				setLayer(button, layer);
 				button.addActionListener(new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent e){
-						ActionHandler.getInstance().getTimeSlotDialog(timeSlot);
+						ActionHandler.getInstance().getTimeSlotDialog(e);
 					}
 				});
 			}

@@ -32,7 +32,7 @@ public class Window extends JFrame implements Observer {
 	public void update(Observable o, Object arg) {
 		if (o instanceof Communication) {
 			// If it's from communication it's always a linkedlist<object>.
-			LinkedList<Object> argsList = (LinkedList<Object>) arg;
+			LinkedList<?> argsList = (LinkedList<?>) arg;
 
 			// Check what type of message was received
 			if (((String) argsList.get(0)).compareToIgnoreCase("Login") == 0) {
@@ -107,16 +107,19 @@ public class Window extends JFrame implements Observer {
 	public JDialog getDialog(String key, Object ... o) {
 		try {
 			String s = "view.dialog." + key;
+			Object[] temp = {o};
 			CustomDialog c = (CustomDialog) Class.forName(s).
 					getConstructor(Object[].class).
-					newInstance((Object)o);
+					newInstance(temp);
 			return c;
 			
 			
 		// So many exceptions
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.getCause();
 			return null;
 		}
+		
+		
 	}
 }

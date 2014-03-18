@@ -8,6 +8,7 @@
 package controller;
 
 import java.awt.Container;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -22,6 +23,7 @@ import model.schedule.TimeSlot;
 
 import org.joda.time.DateTime;
 
+import swing.TimeJButton;
 import swing.TimeTextPanel;
 import view.dialog.CustomDialog;
 
@@ -88,7 +90,7 @@ public class ActionHandler {
 	 *            to get the selected user from
 	 */
 	public void getUser(Container usernameBox) {
-		JComboBox username = (JComboBox) usernameBox;
+		JComboBox<?> username = (JComboBox<?>) usernameBox;
 
 		Workflow.getInstance().getCommunication()
 				.send("GetUser", username.getSelectedItem());
@@ -176,8 +178,8 @@ public class ActionHandler {
 		Workflow.getInstance().getSchedule().getPreviousWeek();
 	}
 	
-	public void getTimeSlotDialog(TimeSlot timeSlot){
-		System.out.println(timeSlot.toString());
+	public void getTimeSlotDialog(ActionEvent e){
+		TimeSlot timeSlot = ((TimeJButton)e.getSource()).getTimeSlot();
 		Workflow.getInstance().getWindow().getDialog("TimeSlotDialog", timeSlot).setVisible(true);
 	}
 
@@ -186,8 +188,7 @@ public class ActionHandler {
 	 * creating a new user.
 	 */
 	public void createUserDialog() {
-		Workflow.getInstance().getWindow().getDialog("CreateUserDialog")
-				.setVisible(true);
+		Workflow.getInstance().getWindow().getDialog("CreateUserDialog").setVisible(true);
 	}
 
 	/**
@@ -195,8 +196,7 @@ public class ActionHandler {
 	 * editing a current user. Request all users from the server.
 	 */
 	public void editUserDialog() {
-		Workflow.getInstance().getWindow().getDialog("EditUserDialog", Workflow.getInstance().getCommunication())
-				.setVisible(true);
+		Workflow.getInstance().getWindow().getDialog("EditUserDialog", Workflow.getInstance().getCommunication()).setVisible(true);
 	}
 
 	/**
@@ -318,7 +318,7 @@ public class ActionHandler {
 			Container usernameText, Container passText, Container authorityText) {
 		JTextField username = (JTextField) usernameText;
 		JPasswordField password = (JPasswordField) passText;
-		JComboBox<String> authority = (JComboBox<String>) authorityText;
+		JComboBox<?> authority = (JComboBox<?>) authorityText;
 		customDialog.setVisible(false);
 
 		User user = new User(username.getText(), new String(
@@ -349,7 +349,7 @@ public class ActionHandler {
 		JTextField username = (JTextField) usernameText;
 		JPasswordField password = (JPasswordField) passwordText;
 		JPasswordField confirmPassword = (JPasswordField) confirmPasswordText;
-		JComboBox<String> authority = (JComboBox<String>) authorityText;
+		JComboBox<?> authority = (JComboBox<?>) authorityText;
 
 		String pass = new String(password.getPassword());
 		String confirmPass = new String(confirmPassword.getPassword());
@@ -389,9 +389,9 @@ public class ActionHandler {
 			Container yearComboBox, Container weekComboBox, int day,
 			Container startPanel, Container stopPanel) {
 
-		int year = Integer.parseInt(((JComboBox) yearComboBox)
+		int year = Integer.parseInt(((JComboBox<?>) yearComboBox)
 				.getSelectedItem().toString());
-		int week = Integer.parseInt(((JComboBox) weekComboBox)
+		int week = Integer.parseInt(((JComboBox<?>) weekComboBox)
 				.getSelectedItem().toString());
 		int start = Integer.parseInt(((TimeTextPanel) startPanel).getTime());
 		int stop = Integer.parseInt(((TimeTextPanel) stopPanel).getTime());

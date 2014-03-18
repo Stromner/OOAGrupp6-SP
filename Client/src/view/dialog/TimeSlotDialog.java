@@ -19,10 +19,9 @@ import model.schedule.TimeSlot;
 public class TimeSlotDialog extends CustomDialog {
 	private static final long serialVersionUID = -3660230252379856775L;
 	TimeSlot timeSlot;
-
+	
 	public TimeSlotDialog(Object ... o) {
 		super();
-		
 		this.timeSlot = (TimeSlot)o[0];
 		setTitle("Time Slot Dialog");
 	}

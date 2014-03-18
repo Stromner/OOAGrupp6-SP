@@ -43,7 +43,7 @@ public class GetUserDialog extends StandardButtonsDialog implements Observer {
 
 	public void update(Observable o, Object arg) {
 		if (o instanceof Communication) {
-			LinkedList<Object> argsList = (LinkedList<Object>) arg;
+			LinkedList<?> argsList = (LinkedList<?>) arg;
 
 			// Check what type of message was received
 			if (((String) argsList.get(0)).compareToIgnoreCase("GetAllUsers") == 0) {

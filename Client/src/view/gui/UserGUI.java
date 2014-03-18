@@ -18,7 +18,6 @@ import java.util.Observable;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import model.Communication;
@@ -37,7 +36,7 @@ public abstract class UserGUI extends GUI{
 
 	public void update(Observable o, Object arg) {
 		if (o instanceof Communication) {
-			LinkedList<Object> argsList = (LinkedList<Object>) arg;
+			LinkedList<?> argsList = (LinkedList<?>) arg;
 			if (((String) argsList.get(0)).compareToIgnoreCase("GetUser") == 0) {
 				user = (User) argsList.get(1);
 

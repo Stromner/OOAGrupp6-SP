@@ -23,7 +23,6 @@ import javax.swing.SwingConstants;
 
 import model.schedule.Schedule;
 import controller.ActionHandler;
-import controller.Workflow;
 
 public class JSchedule extends JPanel implements Observer {
 	private static final long serialVersionUID = -1770872985394426334L;

@@ -111,7 +111,7 @@ public class NewTimeSlotDialog extends StandardButtonsDialog {
 						.newTimeSlotDialogOk(customDialog,
 								components.get("yearComboBox"),
 								components.get("weekComboBox"),
-								((JComboBox)components.get("dayComboBox")).getSelectedIndex(),
+								((JComboBox<?>)components.get("dayComboBox")).getSelectedIndex(),
 								components.get("startText"),
 								components.get("stopText"));
 			}

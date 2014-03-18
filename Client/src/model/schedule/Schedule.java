@@ -37,7 +37,7 @@ public class Schedule extends Observable implements Observer, Serializable {
 
 	public void update(Observable o, Object arg) {
 		if (o instanceof Communication) {
-			LinkedList<Object> argsList = (LinkedList<Object>) arg;
+			LinkedList<?> argsList = (LinkedList<?>) arg;
 			// A user with an existing schedule came, set us to that schedule.
 			if (((String) argsList.get(0)).compareToIgnoreCase("GetUser") == 0) {
 				user = (User) argsList.get(1);
